@@ -17,7 +17,7 @@ class Recipe(models.Model):
     date = models.DateField
     photo = models.ImageField
     description = models.CharField(max_length=1000)
-    dietPref = models.CharField(choices = DIET_PREFS)
+    dietPref = models.CharField(max_length=10, choices = DIET_PREFS)
     quality = models.IntegerField
     difficulty = models.IntegerField
     
@@ -36,3 +36,4 @@ class Rating(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=40, unique=True)
     recipe = models.ManyToManyField(Recipe)
+    
