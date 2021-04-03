@@ -22,17 +22,17 @@
 		<div class = "navigation_bar">
 			<a href="/foodie/">Home</a>
 			<a href="/foodie/recipes" class = "right">Recipes</a>
-
+			{% if user.is_authenticated %}
 				<a href="{% url 'foodie:myrecipes' %}">My Recipes</a>
 				<a href="{% url 'foodie:newrecipe' %}">Add New Recipe</a>
 				<a href="{% url 'foodie:logout' %}">Logout</a>
-
+			{% else %}
 
 				<!-- Show these links when the user is NOT logged in -->
 				<a href="{% url 'foodie:register' %}">Register</a>
 				<a href="{% url 'foodie:login' %}">Login</a>
 
-
+		{% endif %}
 		</div>
 	<div>
 
