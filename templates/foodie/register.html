@@ -6,18 +6,18 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Sign Up for Foodie</h1>
-{% if registered %}
-<a href="{% url 'foodie:home' %}">Return to the homepage.</a><br />
-{% else %}
-<strong>Sign Up here!</strong><br />
-<form id="user_form" method="post" action="{% url 'foodie:register' %}"
+	<h1>Sign Up for Foodie</h1>
+	{% if registered %}
+	<a href="{% url 'foodie:home' %}">Return to the homepage.</a><br />
+	{% else %}
+	<strong>Sign Up here!</strong><br />
+	<form id="user_form" method="post" action="{% url 'foodie:register' %}"
 		enctype="multipart/form-data">
 	
-	{% csrf_token %}
-	{{ user_form.as_p }}
+		{% csrf_token %}
+		{{ user_form.as_p }}
 	
-	<input type="submit" name="submit" value="Register" />
-</form>
-{% endif %}
+		<input type="submit" name="submit" value="Register" />
+	</form>
+	{% endif %}
 {% endblock %}

@@ -5,21 +5,18 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib.auth.models import User
+from foodieapp.models import UserProfile
+from foodieapp.forms import UserForm
 
 def home(request):
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage matches to {{ boldmessage }} in the template!
-    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
-    return render(request, 'foodie/home.html', context=context_dict)
+    return render(request, 'foodie/home.html')
     
 def register(request):
     registered = False
     
     if request.method == 'POST':
-        user_form = UserProfileForm(request.POST)
+        user_form = UserForm(request.POST)
         
         if user_form.is_valid():
             user = user_form.save()

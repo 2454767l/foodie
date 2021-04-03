@@ -31,13 +31,13 @@
 			
 			{% block sidenav %}
 				<a href="{% url 'foodieapp:home' %}">Home</a>
-				<a href="/foodie/recipes" class = "right">Recipes</a>
+				<a href="foodieapp:allRecipes">Recipes</a>
 				{% if user.is_authenticated %}
 					<a href="{% url 'foodieapp:myrecipes' %}">My Recipes</a>
 					<a href="{% url 'foodieapp:newrecipe' %}">Add New Recipe</a>
 					<a href="{% url 'foodieapp:logout' %}">Logout</a>
 				{% else %}
-					<a href="{% url 'foodieapp:signup' %}">Register</a>
+					<a href="{% url 'foodieapp:register' %}">Register</a>
 					<a href="{% url 'foodieapp:login' %}">Login</a>
 				{% endif %}
 			{% endblock %}
