@@ -6,13 +6,6 @@
 {% endblock %}
 
 {% block body_block %}
-	<div>
-		{% if user.is_authenticated %}
-			Welcome Back {{ user.username }}!
-		{% else %}
-			Hello new user
-		{% endif %}
-	</div>
 
 	<div>
 		<h2>Top Recipes</h2>

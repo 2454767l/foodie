@@ -37,8 +37,8 @@
 					<a href="{% url 'foodieapp:newrecipe' %}">Add New Recipe</a>
 					<a href="{% url 'foodieapp:logout' %}">Logout</a>
 				{% else %}
-					<a href="{% url 'foodieapp:signup' %}">Register</a>
 					<a href="{% url 'foodieapp:login' %}">Login</a>
+					<a href="{% url 'foodieapp:signup' %}">Register</a>
 				{% endif %}
 			{% endblock %}
 			
