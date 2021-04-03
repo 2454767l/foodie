@@ -24,8 +24,6 @@
 		</div>
 	</head>
 	
-	
-
 	<body>
 		<div class = "sidenav">
 			
@@ -37,12 +35,8 @@
 					<a href="{% url 'foodieapp:newrecipe' %}">Add New Recipe</a>
 					<a href="{% url 'foodieapp:logout' %}">Logout</a>
 				{% else %}
-<<<<<<< HEAD
 					<a href="{% url 'foodieapp:register' %}">Register</a>
-=======
->>>>>>> 1946591068f180a430669653fb67562df2845e75
 					<a href="{% url 'foodieapp:login' %}">Login</a>
-					<a href="{% url 'foodieapp:signup' %}">Register</a>
 				{% endif %}
 			{% endblock %}
 			
