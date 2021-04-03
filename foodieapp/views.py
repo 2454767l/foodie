@@ -28,7 +28,7 @@ def register(request):
             registered = True
         else:
             print(user_form.errors)
-    else:ÓÍ
+    else:
         user_form = UserForm()
 
     
