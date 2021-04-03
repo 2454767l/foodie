@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-{% load foodie_template_tags %}
+
 
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<meta name = "viewport" content="width=device-width, initial-scale=1">
+		{% block base_css %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'static/base.css' %}"/>
+		{% endblock %}
+
 		<title>
-			Foodie-
-			{% block title_block %}
-				How to Tango with Django!
-			{% endblock %}
+			Foodie Base
 		</title>
 	</head>
+
+
 	<body>
-		<div>
+	{% block navigation_bar %}
+		<div class = "navigation_bar">
+			<a href="/foodie/">Home</a>
+			<a href="/foodie/recipes" class = "right">Recipes</a>
+
+				<a href="{% url 'foodie:myrecipes' %}">My Recipes</a>
+				<a href="{% url 'foodie:newrecipe' %}">Add New Recipe</a>
+				<a href="{% url 'foodie:logout' %}">Logout</a>
+
+
+				<!-- Show these links when the user is NOT logged in -->
+				<a href="{% url 'foodie:register' %}">Register</a>
+				<a href="{% url 'foodie:login' %}">Login</a>
+
+
+		</div>
+	<div>
+
+<form id="form">
+  <input type="search" id="query" name="q" placeholder="Search...">
+  <button>Search</button>
+</form>
+
+	</div>
+
+		{% endblock %}
+	<div class = "main">
 		{% block body_block %}
 		{% endblock %}
-		</div>
-		<div>
-			{% block sidebar_block %}
-				{% get_category_list %}
-			{% endblock %}
-		</div>
+	</div>
+
 		<hr/>
 		<div>
 
@@ -29,22 +57,9 @@
 	</div>
 
 		<div>
-			<ul>
-			{% if user.is_authenticated %}
-				<!-- Show these links when the user is logged in -->
-				<li><a href="{% url 'foodie:myrecipes' %}">My Recipes</a></li>
-				<li><a href="{% url 'foodie:newrecipe' %}">Add New Recipe</a></li>
-				<li><a href="{% url 'foodie:logout' %}">Logout</a></li>
-
-			{% else %}
-				<!-- Show these links when the user is NOT logged in -->
-				<li><a href="{% url 'foodie:signup' %}">Sign Up</a></li>
-				<li><a href="{% url 'foodie:login' %}">Login</a></li>
-			{% endif %}
-				<!-- Outside the conditional statements, ALWAYS show -->
-				<li><a href="{% url 'foodie:all recipes' %}">See all recipes</a></li>
-				<li><a href="{% url 'foodie:home' %}">Home</a></li>
-			</ul>
+<img src="{% static 'images/logo.png' %}"
+		alt= "Picture of our logo" /> <!-- New Line -->
+	</div>
 		</div>
 	</body>
 </html>

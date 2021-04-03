@@ -32,7 +32,7 @@ def register(request):
         user_form = UserForm()
 
     
-    return render(request, 'foodie/signup.html', context = {'user_form': user_form, 
+    return render(request, 'foodie/register.html', context = {'user_form': user_form,
                                                             'registered': registered})
 
 def user_login(request):
