@@ -1,9 +1,35 @@
 mint green is hex #9adcb1
 
 .logo{
-
     width: 50px;
     display: inline-flex;
+
+}
+
+.titleBox {
+
+    text-align: center;
+    background-color: green;
+    border: green;
+    width: 300px;
+    height: 65px;
+    margin-left: 450px;
+}
+
+.textBox1{
+    text-align: center;
+    background-color: white;
+    border: green;
+    width: 300px;
+    height: 65px;
+    margin-left: 450px;
+
+}
+
+.logo img{
+
+    margin: auto 50px;
+    float: left;
 }
 
 body {
@@ -13,7 +39,7 @@ body {
 
 
 .sidenav {
-  width: 230px;
+  width: 200px;
   position: fixed;
   z-index: 1;
   top: 200px;
@@ -23,19 +49,10 @@ body {
   padding: 8px 0;
 }
 
-.search input[type="text"] {
-    position:absolute;
-    left:50%;
-    top:25%;
-    width:50%;
-    background-color:white;
-    color:grey;
-}
-
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 50px;
+  font-size: 40px;
   color: Black;
   background: white;
   display: block;
@@ -45,24 +62,29 @@ body {
   color: #064579;
 }
 
+.search input[type="text"] {
+    position:relative;
+    left:200%;
+    top:50%;
+    width:400%;
+    background-color:white;
+    color:grey;
+}
+
 .main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
-  font-size: 60px; /* Increased text to enable scrolling */
+  text-align: center;
+  margin-left: 200px; /* Same width as the sidebar + left position in px */
+  font-size: 30px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
 
-.logo img{
-    margin: auto 5px;
-    float: left;
-}
-
 .heading {
-  margin-right:150px;
+  margin-right:210px;
   text-align: center;
-  font-size: 1em;
-  color: #009;
-  margin-bottom: .3em;
+  font-size: 3em;
+  color: green;
+  /*margin-bottom: .3em;*/
 
 }
 
