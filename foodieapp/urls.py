@@ -8,5 +8,10 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
-    path('like_recipe/', views.LikeRecipe.as_view(), name='upvote_recipe')
+    path('like_recipe/', views.LikeRecipe.as_view(), name='upvote_recipe'),
+    path('recipes/', views.recipes, name='recipes'),
+    path('recipes/<slug:recipe_name_slug>/', views.show_recipe, name='show_recipe'),
+    path('login/account/', views.show_account, name='show_account'),
+    path('login/account/newrecipe/', views.new_recipe, name='new_recipe'),
+    path('login/account/myrecipes/', views.my_recipes, name='my_recipes'),
 ]
