@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ recipe.title }}</title>
+    <script src="{% static "js/recipe-ajax.js" %}" crossorigin="anonymous"></script>
+</head>
+<body>
     <div>
         <h4 id="upvote_header">
             {{ recipe.upvotes }} Upvotes
@@ -13,9 +16,6 @@
             Upvote
         </button>
     </div>
-
-</head>
-<body>
-
+    
 </body>
 </html>
