@@ -20,8 +20,7 @@
 
 	<body>
 
-
-			<div class="logo">
+		<div class="logo">
 			<img src="{% static 'images/logo.png' %}"
 				alt= "Picture of our logo" />
 
@@ -29,9 +28,9 @@
 
 
 		<div class="heading">
+			<h1>  Foodie  </h1>
+		</div>
 
-		<h1>  Foodie  </h1>
-			</div>
 		<div class = "sidenav">
 
 			{% block sidenav %}
@@ -49,24 +48,23 @@
 			
 		</div>
 
-	<div id="mainSearchContainer">
+		<div id="mainSearchContainer">
 
-		<div class="search">
-			<form id="form">
-				<input type="search" id="query" name="q" placeholder="Search...">
-				<button>Search</button>
-			</form>
+			<div class="search">
+				<form id="form">
+					<input type="search" id="query" name="q" placeholder="Search...">
+					<button>Search</button>
+				</form>
+			</div>
+
+			<div class = "main">
+				{% block body_block %}
+				{% endblock %}
+			</div>
 		</div>
-
-		<div class = "main">
-
-			{% block body_block %}
-			{% endblock %}
-		</div>
-</div>
 
 		<script src="{% static "js/jquery-3.3.1.min.js" %}" crossorigin="anonymous"></script>
-		<script src="{% static "js/foodie-jquery.js" %}" crossorigin="anonymous"></script>
+		<!--<script src="{% static "js/foodie-jquery.js" %}" crossorigin="anonymous"></script>-->
 
 	</body>
 </html>

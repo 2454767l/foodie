@@ -1,4 +1,25 @@
-mint green is hex #9adcb1
+/*mint green is hex #9adcb1*/
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #c0e1bd;
+}
+
+table {
+  margin: .3em;
+  width: 290px;
+}
+
+th {
+  padding: .2em;
+}
+
+td {
+  padding-left: .5em;
+  padding-right: .5em;
+  border: 1px solid #900;
+  background-color: #ffc;
+}
 
 .logo{
     width: 50px;
@@ -30,11 +51,6 @@ mint green is hex #9adcb1
 
     margin: auto 50px;
     float: left;
-}
-
-body {
-  font-family: "Lato", sans-serif;
-  background-color: #c0e1bd;
 }
 
 
@@ -78,7 +94,6 @@ body {
   padding: 0px 10px;
 }
 
-
 .heading {
   margin-right:210px;
   text-align: center;
@@ -88,27 +103,11 @@ body {
 
 }
 
-table {
-  margin: .3em;
-  width: 290px;
-}
-
-th {
-  padding: .2em;
-}
-
-td {
-  padding-left: .5em;
-  padding-right: .5em;
-  border: 1px solid #900;
-  background-color: #ffc;
+.centerCell {
+  text-align: center;
 }
 
 #trHeader {
   text-decoration: underline;
   color: #900;
-}
-
-.centerCell {
-  text-align: center;
 }
