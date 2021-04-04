@@ -8,3 +8,17 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'password',)
+
+class RecipeForm(forms.ModelForm):
+    title = forms.CharField(max_length = 40, help_text="Enter recipe name:")
+    date = forms.DateField.auto_now()
+    photo = forms.ImageField(help_text="Upload image: ", required=False)
+    description = forms.CharField(max_length=1000, help_text="Enter description:")
+    dietPref = forms.CharField(max_length=1000, help_text="Enter dietary preference:")
+    upvotes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    difficulty = forms.IntegerField(max_value= 5, help_text="Enter difficulty rating(0-5):")
+    ingredients = forms.CharField(max_length=1000, help_text="Enter ingredients list:")
+
+    class Meta:
+        model = Recipe
+        exclude = ('upvotes')
