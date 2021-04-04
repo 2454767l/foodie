@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from foodieapp.models import UserProfile
 from foodieapp.forms import UserForm
+from django.views.generic import View
 
 def home(request):
     return render(request, 'foodie/home.html')
