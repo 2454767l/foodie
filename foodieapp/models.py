@@ -18,7 +18,7 @@ class Recipe(models.Model):
     photo = models.ImageField
     description = models.CharField(max_length=1000)
     dietPref = models.CharField(max_length=10, choices = DIET_PREFS)
-    quality = models.IntegerField
+    upvotes = models.IntegerField
     difficulty = models.IntegerField
     
 
@@ -26,7 +26,6 @@ class Recipe(models.Model):
         return self.name
 
 class Rating(models.Model):
-    #I think this is allowed? 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     positive = models.BooleanField

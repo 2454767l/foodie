@@ -2,7 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ recipe.title }}</title>
+    <div>
+        <h4 id="upvote_header">
+            {{ recipe.upvotes }} Upvotes
+        </h4>
+        <button id="upvote_button" 
+            data-catagoryid="{{  }}" 
+            type="button">
+            Upvote
+        </button>
+    </div>
+
 </head>
 <body>
 
