@@ -58,3 +58,13 @@ def user_logout(request):
     logout(request)
     return redirect(reverse('foodie:home'))
 
+class LikeRecipe(View):
+    def get(self, request):
+        recipe_id = request.GET['recipe.id']
+        recipe = recipe.objects.get(id = int(recipe_id))
+        recipe.upvotes += 1
+        recipe.save()
+
+        return HttpResponse(recipe.upvotes)
+
+
