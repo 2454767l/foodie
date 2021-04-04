@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ recipe.title }}</title>
+    <script src="{% static "js/recipe-ajax.js" %}" crossorigin="anonymous"></script>
 </head>
 <body>
-
+    <div>
+        <h4 id="upvote_header">
+            {{ recipe.upvotes }} Upvotes
+        </h4>
+        <button id="upvote_button" 
+            data-recipeid="{{ recipe.id }}" 
+            type="button">
+            Upvote
+        </button>
+    </div>
+    
 </body>
 </html>
