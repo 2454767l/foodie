@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
+{% if recipes %}
+    {% for recipe in recipes %}
+        <div class="recipe_result_box">
+            <h2>{{ recipe.name }}</h2>
+            <img src="{{ recipe.photo }}" alt="photo of {{ recipe.name }}" />
+        </div>
+    {% endfor %}
+{% else %}
+<h4 class="not_found">No recipes!</h4>
+{% endif %}
 </body>
 </html>

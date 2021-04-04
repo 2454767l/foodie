@@ -8,18 +8,15 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Recipe(models.Model):
-    VEGAN = 'VE'
-    VEGETARIAN = 'VG'
-    DIET_PREFS = [(VEGAN, 'Vegan'), (VEGETARIAN, 'Vegetarian')]
-    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=40)
     date = models.DateField
-    photo = models.ImageField
+    photo = models.ImageField(upload_to='user_images', blank=True)
     description = models.CharField(max_length=1000)
-    dietPref = models.CharField(max_length=10, choices = DIET_PREFS)
+    dietPref = models.CharField(max_length=100)
     upvotes = models.IntegerField
     difficulty = models.IntegerField
+    ingredients = models.CharField(max_length=1000)
     
 
     def __str__(self):
@@ -32,7 +29,3 @@ class Rating(models.Model):
     difficulty = models.IntegerField
     date = models.DateField()
 
-class Ingredient(models.Model):
-    name = models.CharField(max_length=40, unique=True)
-    recipe = models.ManyToManyField(Recipe)
-    
