@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'foodie/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block title_block %}
+New Recipe
+{% endblock %}
+
+{% block body_block %}
+<h1>Add a new Recipe</h1>
+<form id="newRecipe_form" method="post" action="{% url 'foodie:newRecipe' %}">
+    {% csrf_token %}
+    Name of recipe: <input type="text" name="recipeName" value="" size="50"/>
+    <br/>
+
+    Difficulty rating (1-5): <input type="text" name="recipeName" value="" size="50"/>
+
+    <select name = "difficulty">
+            <option value = "1" selected>1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+         </select>
+
+    List the ingredients and their measurements:
+    <div class="submissionfield">
+        <input type="ingredients" name="ingredients" value="" size="50" maxlength="1000"/>
+    </div>
+    <br/>
+
+    Cooking instructions:
+    <div class="submissionfield">
+        <input type="instructions" name="instructions" value="" size="50" maxlength="1000"/>
+    </div>
+    <br/>
+    <input type="submit" value="submit"/>
+
+    Add an image:
+    <div>
+        <input type="image" name="image" id="image"/>
+    </div>
+    <br/>
+
+</form>
+{% endblock %}
