@@ -11,7 +11,6 @@ table {
 .logo{
     width: 50px;
     display: inline-flex;
-
 }
 
 .titleBox {
@@ -22,19 +21,21 @@ table {
     width: 300px;
     height: 65px;
     margin-left: 450px;
-    margin-top: 200px;
+    margin-top: 175px;
 }
 
 .textBox1{
     text-align: center;
     background-color: white;
-    border: green;
-    width: 300px;
-    height: 65px;
-    margin-left: 450px;
-    margin-top: 100px;
+    border: black;
+    width: 500px;
+    height: 100px;
+    margin-left: 350px;
+    margin-top: 75px;
 
 }
+
+
 
 #logo {
   border-color: red;
@@ -94,10 +95,47 @@ table {
   height: 0vw;
   text-align: center;
   margin-left: 30vw;
+  margin-bottom: 30vw;
   font-size: 3em;
   color: green;
   float: left;
   /*margin-bottom: .3em;*/
+}
+
+.noRecipes{
+
+  text-align: center;
+    margin-top: 300px;
+    margin-right: 35vw;
+}
+
+.noRecipesMessage{
+  text-align: center;
+    margin-top: 100px;
+
+
+}
+
+.foodieSignupTitle{
+
+  text-align: center;
+    margin-top: 200px;
+    margin-right: 35vw;
+}
+
+.foodieSignupForum{
+
+    text-align: center;
+    margin-top: 25px;
+    margin-right: 35vw;
+
+}
+
+.loginForum{
+    text-align: center;
+    margin-top: 250px;
+    margin-right: 25vw;
+
 }
 
 .centerCell {
