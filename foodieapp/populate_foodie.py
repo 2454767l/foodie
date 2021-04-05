@@ -11,7 +11,7 @@ def populate():
     users = [{'username': 'ben', 'firstname': 'ben',
               'lastname': 'bennison', 'password': '1234'}]
 
-    recipes = [{'title': 'Pizza', 'photo': '', 'user': 'alen',
+    recipes = [{'title': 'Pizza', 'photo': '', 'user': 'alenr',
                 'description': 'Turn on oven. Put pizza in. Wait 30 mins.',
                 'dietPref': 'Vegetarian', 'difficulty': '2',
                 'ingredients': 'flour, oil, water, tomato sauce, cheese'},
@@ -26,17 +26,17 @@ def populate():
                 'dietPref': 'Vegan', 'difficulty': '1',
                 'ingredients': 'salad, onions, tomatoes, carrots, peppers'}]
 
-    ratings = [{'user': 'alen', 'recipe': 'pizza'},
+    ratings = [{'user': 'alenr', 'recipe': 'pizza'},
                {'user': 'ben', 'recipe': 'pizza'},
                {'user': 'erin', 'recipe': 'pizza'},
                {'user': 'thomas', 'recipe': 'pizza'},
 
-               {'user': 'alen', 'recipe': 'pasta'},
+               {'user': 'alenr', 'recipe': 'pasta'},
                {'user': 'ben', 'recipe': 'pasta'},
                {'user': 'erin', 'recipe': 'pasta'},
                {'user': 'thomas', 'recipe': 'pasta '},
 
-               {'user': 'alen', 'recipe': 'salad'},
+               {'user': 'alenr', 'recipe': 'salad'},
                {'user': 'ben', 'recipe': 'salad'},
                {'user': 'thomas', 'recipe': 'salad'}
                ]
@@ -57,9 +57,9 @@ def add_user(username, password):
     user = user.objects.get_or_create(username=username, password=password)
 
 
-def add_recipe(title, photo, user, description, dietPref, difficulty, ingredients):
+def add_recipe(title, photo, user, description, diet_pref, difficulty, ingredients):
     recipe = Recipe.objects.get_or_create(title=title, photo=photo, user=user, description=description,
-                                          dietPref=dietPref, difficulty=difficulty, ingredients=ingredients)
+                                          diet_pref=dietPref, difficulty=difficulty, ingredients=ingredients)
     recipe.user = UserProfile.objects.get(user=user)
     recipe.save()
     return recipe
