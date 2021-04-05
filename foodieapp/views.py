@@ -33,7 +33,7 @@ def new_recipe(request):
         else:
             print(form.errors)
 
-    return render(request, 'foodie/newrecipe.html', {'form':form}
+    return render(request, 'foodie/newrecipe.html', {'form':form})
     
 def register(request):
     registered = False
