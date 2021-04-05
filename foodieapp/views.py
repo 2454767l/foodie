@@ -20,6 +20,24 @@ def search(request):
     query = request.GET['query']
     return render()
 
+def recipes(request):
+    all_recipes = Recipe.objects
+    context_dict= {}
+    context_dict['all'] = all_recipes
+
+    return render(request, 'foodie/allRecipes.html', context=context_dict)
+
+def show_recipe(request, recipe_name_slug):
+    context_dict = {}
+
+    try:
+        recipe = Recipe.objects.get(slug=recipe_name_slug)
+        context_dict['recipe'] = recipe
+    except Recipe.DoesNotExist:
+        context_dict['recipe'] = None
+
+    return render(request, 'foodie/recipe.html', context=context_dict)
+
 @login_required
 def new_recipe(request):
     form = RecipeForm()
