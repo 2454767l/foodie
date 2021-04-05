@@ -8,16 +8,7 @@ table {
   width: 290px;
 }
 
-th {
-  padding: .2em;
-}
 
-td {
-  padding-left: .5em;
-  padding-right: .5em;
-  border: 1px solid #900;
-  background-color: #ffc;
-}
 
 .logo{
     width: 50px;
@@ -97,8 +88,6 @@ td {
   text-align: center;
   font-size: 3em;
   color: green;
-
-
   /*margin-bottom: .3em;*/
 }
 
