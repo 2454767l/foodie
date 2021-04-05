@@ -10,25 +10,16 @@
 {% endblock %}
 
 {% block body_block %}
-	<div>
-		{% if user.is_authenticated %}
-			Welcome Back {{ user.username }}!
-		{% else %}
-			Hello new user
-		{% endif %}
-	</div>
-
-	<div>
-		<h2>Top Recipes</h2>
 	{% if recipes %}
-		<ul>
-		{% for recipe in recipes %}
-			<li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.name }}</a></li>
-		{% endfor %}
-		</ul>
-	{% else %}
-		<strong>There are no top recipes present.</strong>
-	{% endif %}
-	</div>
+        {% for recipe in recipes %}
+        <!-- This needs to be abstracted out -->
+        <div class="recipe_result_container">
+            <h2 class="recipe_result_title">{{ recipe.name }}</h2>
+            <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.name }}" />
+        </div>
+        {% endfor %}
+    {% else %}
+        <h4 class="not_found">No recipes!</h4>
+    {% endif %}
 
 {% endblock %}
