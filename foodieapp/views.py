@@ -11,11 +11,29 @@ from foodieapp.forms import UserForm
 from django.views.generic import View
 
 def home(request):
-    return render(request, 'foodie/home.html')
+    highest_voted = Recipe.objects.orderby(-upvotes)[:5]
+    context_dict = {}
+    context_dict['highest'] = highest_voted
+    return render(request, 'foodie/home.html', context=context_dict)
 
 def search(request):
     query = request.GET['query']
     return render()
+
+@login_required
+def new_recipe(request):
+    form = RecipeForm()
+
+    if request.method=='POST':
+        form = RecipeForm(request.POST)
+
+        if form.is_valid:
+            form.save(commit=True)
+            return redirect('/foodie')
+        else:
+            print(form.errors)
+
+    return render(request, 'foodie/newrecipe.html', {'form':form}
     
 def register(request):
     registered = False
