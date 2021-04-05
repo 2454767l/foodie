@@ -1,4 +1,3 @@
-//adapted from Azzopardi, Leif and Maxwell, David. 2020. Tango With Django 2. 
 $document.ready(function(){
     $('#upvote_button').click(function(){
         var recipe_id = $(this).attr('data-recipeid');
