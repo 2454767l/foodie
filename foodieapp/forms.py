@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
-from foodieapp.models import UserProfile
+from foodieapp.models import UserProfile, Recipe, Rating
+
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -11,7 +12,6 @@ class UserForm(forms.ModelForm):
 
 class RecipeForm(forms.ModelForm):
     title = forms.CharField(max_length = 40, help_text="Enter recipe name:")
-    date = forms.DateField.auto_now()
     photo = forms.ImageField(help_text="Upload image: ", required=False)
     description = forms.CharField(max_length=1000, help_text="Enter description:")
     dietPref = forms.CharField(max_length=1000, help_text="Enter dietary preference:")
@@ -21,4 +21,4 @@ class RecipeForm(forms.ModelForm):
 
     class Meta:
         model = Recipe
-        exclude = ('upvotes')
+        exclude = ('upvotes', 'date', 'user')
