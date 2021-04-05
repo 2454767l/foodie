@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'foodie/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block title_block %}
+    Search Results
+{% endblock %}
+
+{% block body_block %}
+
+    {% if recipes %}
+        {% for recipe in recipes %}
+        <!-- This needs to be abstracted out -->
+        <div class="recipe_result_container">
+            <h2 class="recipe_result_title">{{ recipe.name }}</h2>
+            <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.name }}" />
+        </div>
+        {% endfor %}
+    {% else %}
+        <h4 class="not_found">No recipes!</h4>
+    {% endif %}
+
+{% endblock %}
