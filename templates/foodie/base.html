@@ -52,10 +52,16 @@
 
 		<div id="mainSearchContainer">
 
-			<div class="search">
-				<form id="form">
-					<input type="search" id="query" name="q" placeholder="Search...">
-					<button>Search</button>
+			<div class="search_container">
+				<form id="search_form">
+					<input id="query" name="query" type="search" name="q" placeholder="Search...">
+					<label for="filter">Filter: </label>
+					<select id="filter" name="filter">
+						<option value="title" selected>Recipe Name</option>
+						<option value="user">User</option>
+						<option value="ingredients">Ingredients</option>
+					</select>
+					<button id="search_button">Search</button>
 				</form>
 			</div>
 
