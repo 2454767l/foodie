@@ -12,6 +12,10 @@ from django.views.generic import View
 
 def home(request):
     return render(request, 'foodie/home.html')
+
+def search(request):
+    query = request.GET['query']
+    return render()
     
 def register(request):
     registered = False
