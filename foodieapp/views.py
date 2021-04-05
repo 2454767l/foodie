@@ -67,10 +67,11 @@ def new_recipe(request):
 
 @login_required
 def show_account(request):
-    user_recipes = Recipe.objects.filter(user=request.user.username)
+    current = UserProfile.objects.filter(user_id=request.user)
+    user_recipes = Recipe.objects.filter(user=current)
     context_dict = {}
     context_dict['recipes'] = user_recipes
-    return render(request, 'foodie/user.html', context_dict)
+    return render(request, 'foodie/myAccount.html', context_dict)
 
     
 

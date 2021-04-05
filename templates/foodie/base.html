@@ -38,8 +38,8 @@
 				<a href="{% url 'foodieapp:home' %}">Home</a>
 				<a href="{% url 'foodieapp:recipes' %}">Recipes</a>
 				{% if user.is_authenticated %}
-					<a href="{% url 'foodieapp:myrecipes' %}">My Recipes</a>
-					<a href="{% url 'foodieapp:newrecipe' %}">Add New Recipe</a>
+					<a href="{% url 'foodieapp:show_account' %}">My Recipes</a>
+					<a href="{% url 'foodieapp:new_recipe' %}">Add New Recipe</a>
 					<a href="{% url 'foodieapp:logout' %}">Logout</a>
 				{% else %}
 					<a href="{% url 'foodieapp:register' %}">Register</a>
