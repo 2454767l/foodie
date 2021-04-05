@@ -2,7 +2,7 @@ from foodieapp.models import Recipe, UserProfile, Rating
 import django
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'tango_with_django_project.settings')
+                      'foodieapp.settings')
 
 django.setup()
 
@@ -41,16 +41,21 @@ def populate():
                {'user': 'thomas', 'recipe': 'salad'}
                ]
 
+    for user in users:
+        add_user(user['username'], user['password'])
+
     for recipe in recipes:
         add_recipe(recipe['title'], recipe['photo'], recipe['user'],
                    recipe['description'], recipe['dietPref'], recipe['difficulty'], recipe['ingredients'])
 
     for rating in ratings:
-        rating_to_add = add_rating(rating['user'], rating['recipe'])
+        add_rating(rating['user'], rating['recipe'])
 
 
-def add_user():
-    return None
+def add_user(username, password):
+    # should it be UserName
+    user = user.objects.get_or_create(username=username, password=password)
+
 
 def add_recipe(title, photo, user, description, dietPref, difficulty, ingredients):
     recipe = Recipe.objects.get_or_create(title=title, photo=photo, user=user, description=description,
