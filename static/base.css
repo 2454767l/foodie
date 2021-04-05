@@ -71,11 +71,11 @@ table {
   color: #064579;
 }
 
-.search input[type="text"] {
+.search {
     position:relative;
-    left:200%;
+    left:100%;
     top:50%;
-    width:400%;
+    width:100%;
     background-color:white;
     color:grey;
 }
@@ -87,10 +87,11 @@ table {
   padding: 0px 10px;
 }
 
-.heading {
+#heading {
   width: 90vw;
   height: 10vw;
   text-align: center;
+  margin-left: 10vw;
   font-size: 3em;
   color: green;
   float: left;

@@ -7,12 +7,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from foodieapp.models import UserProfile, Recipe
-from foodieapp.forms import UserForm
+from foodieapp.forms import UserForm, RecipeForm
 from django.views.generic import View
 
 
 def home(request):
-    highest_voted = Recipe.objects.orderby(-upvotes)[:5]
+    highest_voted = Recipe.objects.order_by('-upvotes')[:5]
     context_dict = {}
     context_dict['highest'] = highest_voted
     return render(request, 'foodie/home.html', context=context_dict)
