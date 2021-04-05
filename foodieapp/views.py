@@ -71,7 +71,7 @@ def show_account(request):
     user_recipes = Recipe.objects.filter(user=current)
     context_dict = {}
     context_dict['recipes'] = user_recipes
-    return render(request, 'foodie/myAccount.html', context_dict)
+    return render(request, 'foodie/myAccount.html', context=context_dict)
 
     
 
