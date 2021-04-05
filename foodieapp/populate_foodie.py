@@ -8,9 +8,6 @@ django.setup()
 
 
 def populate():
-    # create users from dictionaries,
-    # then create recipes linked to them,
-    # then create ratings
     users = [{'username': 'ben', 'firstname': 'ben',
               'lastname': 'bennison', 'password': '1234'}]
 
@@ -44,11 +41,28 @@ def populate():
                {'user': 'thomas', 'recipe': 'salad'}
                ]
 
+    for recipe in recipes:
+        add_recipe(recipe['title'], recipe['photo'], recipe['user'],
+                   recipe['description'], recipe['dietPref'], recipe['difficulty'], recipe['ingredients'])
+
+    for rating in ratings:
+        rating_to_add = add_rating(rating['user'], rating['recipe'])
+
+
+def add_user():
+    return None
 
 def add_recipe(title, photo, user, description, dietPref, difficulty, ingredients):
     recipe = Recipe.objects.get_or_create(title=title, photo=photo, user=user, description=description,
                                           dietPref=dietPref, difficulty=difficulty, ingredients=ingredients)
-    
+    recipe.user = UserProfile.objects.get(user=user)
+    recipe.save()
+    return recipe
+
 
 def add_rating(user, recipe):
-    rating = Rating.objects.get_or_create(user)
+    rating = Rating.objects.get_or_create(user=user)
+    rating.user = UserProfile.objects.get(user=user)
+    rating.recipe = Recipe.objects.get(title=recipe)
+    rating.save()
+    return rating
