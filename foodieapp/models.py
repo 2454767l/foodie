@@ -28,7 +28,5 @@ class Recipe(models.Model):
 class Rating(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    positive = models.BooleanField
-    difficulty = models.IntegerField
     date = models.DateField()
 

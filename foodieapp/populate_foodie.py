@@ -53,13 +53,12 @@ def populate():
 
 
 def add_user(username, password):
-    # should it be UserName
     user = user.objects.get_or_create(username=username, password=password)
 
 
 def add_recipe(title, photo, user, description, diet_pref, difficulty, ingredients):
     recipe = Recipe.objects.get_or_create(title=title, photo=photo, user=user, description=description,
-                                          diet_pref=dietPref, difficulty=difficulty, ingredients=ingredients)
+                                          dietPref=diet_pref, difficulty=difficulty, ingredients=ingredients)
     recipe.user = UserProfile.objects.get(user=user)
     recipe.save()
     return recipe
