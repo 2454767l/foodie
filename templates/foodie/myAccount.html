@@ -2,32 +2,27 @@
 {% load staticfiles %}
 
 {% block title_block %}
-My Account
+    My Account
 {% endblock %}
 
 {% block body_block %}
 
-<div class="titleBox">
-    <h2>My Recipes</h2>
+    <div class="titleBox">
+        <h2>My Recipes</h2>
 
-</div>
-
-<div>
-    {% if recipes %}
-    <ul>
-        {% for recipe in recipes %}
-        <li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.title }}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-
-    <div class="noRecipesMessage">
-
-        <strong>You have no recipes.</strong>
     </div>
 
-
-    {% endif %}
-</div>
-
+    <div>
+        {% if recipes %}
+            <ul>
+                {% for recipe in recipes %}
+                <li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="noRecipesMessage">
+                <strong>You have no recipes.</strong>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

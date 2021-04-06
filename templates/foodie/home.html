@@ -9,32 +9,26 @@
 
 	<div class = "titleBox">
 		<h2>Top Recipes</h2>
-
-		</div>
+	</div>
 
 	<div class = "textBox1">
 		<p>
 			info about the recipes
 		</p>
-
-		</div>
+	</div>
 
 	<div>
-	{% if recipes %}
-		<ul>
-		{% for recipe in recipes %}
-			<li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.name }}</a></li>
-		{% endfor %}
-		</ul>
-	{% else %}
-
-		    <div class="noRecipesMessage">
-
-		<strong>There are no top recipes present.</strong>
-    </div>
-
-
-	{% endif %}
+		{% if recipes %}
+			<ul>
+			{% for recipe in recipes %}
+				<li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.name }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<div class="noRecipesMessage">
+				<strong>There are no top recipes present.</strong>
+			</div>
+		{% endif %}
 	</div>
 
 {% endblock %}

@@ -9,18 +9,15 @@
 	{% if recipes %}
         {% for recipe in recipes %}
         <!-- This needs to be abstracted out -->
-        <div class="textBox1">
-            <h2 class="recipe_result_title">{{ recipe.name }}</h2>
-            <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.name }}" />
-        </div>
+            <div class="textBox1">
+                <h2 class="recipe_result_title">{{ recipe.name }}</h2>
+                <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.name }}" />
+            </div>
         {% endfor %}
     {% else %}
-
-    <div class="noRecipes">
-                <h4 class="not_found">No recipes!</h4>
-
-
-    </div>
+        <div class="noRecipes">
+            <h4 class="not_found">No recipes!</h4>
+        </div>
     {% endif %}
 
 {% endblock %}
