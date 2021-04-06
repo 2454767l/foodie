@@ -55,18 +55,24 @@ def show_recipe(request, recipe_name_slug):
 
 @login_required
 def new_recipe(request):
-    form = RecipeForm()
-
+    current = UserProfile.objects.get(user=request.user)
+    recipe = Recipe()
+    
     if request.method=='POST':
-        form = RecipeForm(request.POST)
+        recipe_form = RecipeForm(request.POST)
 
-        if form.is_valid:
-            form.save(commit=True)
-            return redirect('/foodie')
+        if recipe_form.is_valid:
+            recipe = recipe_form.save(commit=False)
+            recipe.user = current
+            recipe.save()
+            return redirect(reverse('foodie:home'))
         else:
             print(form.errors)
+    else:
+            recipe_form = RecipeForm()
 
-    return render(request, 'foodie/newrecipe.html', context={'form':form})
+
+    return render(request, 'foodie/newrecipe.html', context={'form':recipe_form})
 
 @login_required
 def show_account(request):

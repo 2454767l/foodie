@@ -7,44 +7,13 @@ New Recipe
 
 {% block body_block %}
 <h2 id="newRecipeHeader">Add a new Recipe</h2>
-<form id="newRecipe_form" method="post" action="{% url 'foodie:new_recipe' %}">
-    {% csrf_token %}
-    <div class="submissioncontainer">
-        Name of recipe: <input type="text" class="submissionfield" name="recipeName" value="" size="50" />
-    </div>
+<div class="foodieRecipeForum">
+		<form id="recipe_form" method="POST" action="{% url 'foodie:new_recipe' %}" enctype="multipart/form-data">
 
-    <div class="submissioncontainer">
-        Difficulty rating (1-5):
-        <select name="difficulty">
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
+			{% csrf_token %}
+			{{ form.as_p }}
 
-    <div class="submissioncontainer">
-        List the ingredients and their measurements:
-        <input type="text" class="submissionfield" name="ingredients" value="" size="50" maxlength="1000" />
-    </div>
-
-    <div class="submissioncontainer">
-        Dietary Preferences:
-        <input type="text" class="submissionfield" name="dietPref" value="" size="50" maxlength="1000" />
-    </div>
-
-    <div class="submissioncontainer">
-        Cooking instructions:
-        <input type="text" class="submissionfield" name="instructions" value="" size="50" maxlength="1000" />
-    </div>
-
-    <div class="submissioncontainer">
-        Add an image:
-        <input type="image" name="image" id="image" />
-    </div>
-
-    <input type="submit" value="submit" />
-
-</form>
+			<input type="submit" name="submit" value="Submit" />
+		</form>
+	</div>
 {% endblock %}
