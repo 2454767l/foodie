@@ -10,8 +10,8 @@
     {% if recipes %}
         {% for recipe in recipes %}
         <div class="recipe_result_container">
-            <h2 class="recipe_result_title">{{ recipe.name }}</h2>
-            <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.name }}" />
+            <h2 class="recipe_result_title">{{ recipe.title }}</h2>
+            <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.title }}" />
         </div>
         {% endfor %}
     {% else %}

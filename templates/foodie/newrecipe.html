@@ -7,7 +7,7 @@ New Recipe
 
 {% block body_block %}
 <h1>Add a new Recipe</h1>
-<form id="newRecipe_form" method="post" action="{% url 'foodie:newRecipe' %}">
+<form id="newRecipe_form" method="post" action="{% url 'foodie:new_recipe' %}">
     {% csrf_token %}
     Name of recipe: <input type="text" name="recipeName" value="" size="50"/>
     <br/>
@@ -28,7 +28,7 @@ New Recipe
     </div>
     <br/>
 
-       Dietary Preferences:
+    Dietary Preferences:
     <div class="submissionfield">
         <input type="dietPref" name="dietPref" value="" size="50" maxlength="1000"/>
     </div>

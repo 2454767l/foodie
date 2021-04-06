@@ -16,7 +16,7 @@ My Account
     {% if recipes %}
     <ul>
         {% for recipe in recipes %}
-        <li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.name }}</a></li>
+        <li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.title }}</a></li>
         {% endfor %}
     </ul>
     {% else %}

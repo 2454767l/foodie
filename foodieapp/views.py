@@ -19,17 +19,20 @@ def home(request):
 
 
 def search(request):
-    query = request.GET['query']
-    query_filter = request.GET['filter']
+    query = request.GET.get('query')
+    query_filter = request.GET.get('filter')
     
     if query_filter == "title":
-        results = Recipe.objects.filter(query in Recipe.title)
+        results = Recipe.objects.filter(title=query)
     elif query_filter == "user":    
-        results = Recipe.objects.filter(Recipe.user == query)
+        current = UserProfile.objects.get(user=request.user)
+        results = Recipe.objects.filter(user=current)
     elif query_filter == "ingredients":
-        results = Recipe.objects.filter(query in Recipe.ingredients)
+        results = Recipe.objects.filter(ingredients__contains=query)
     
-    return render(request, 'search.html', results)
+    context_dict = {}
+    context_dict['recipes'] = results
+    return render(request, 'foodie/search.html', context=context_dict)
 
 def recipes(request):
     all_recipes = Recipe.objects
@@ -63,11 +66,11 @@ def new_recipe(request):
         else:
             print(form.errors)
 
-    return render(request, 'foodie/newrecipe.html', {'form':form})
+    return render(request, 'foodie/newrecipe.html', context={'form':form})
 
 @login_required
 def show_account(request):
-    current = UserProfile.objects.filter(user_id=request.user)
+    current = UserProfile.objects.get(user=request.user)
     user_recipes = Recipe.objects.filter(user=current)
     context_dict = {}
     context_dict['recipes'] = user_recipes
@@ -82,9 +85,13 @@ def register(request):
         user_form = UserForm(request.POST)
         
         if user_form.is_valid():
+            user_profile = UserProfile()
             user = user_form.save()
             user.set_password(user.password)
+            user_profile.user = user
             user.save()
+            user_profile.user = user
+            user_profile.save()
             registered = True
         else:
             print(user_form.errors)

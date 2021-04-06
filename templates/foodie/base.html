@@ -52,7 +52,7 @@
 		<div id="mainSearchContainer">
 
 			<div class="search_container">
-				<form id="search_form">
+				<form id="search_form" method="GET" action="{% url 'foodie:search' %}">
 					<input id="query" name="query" type="search" name="q" placeholder="Search...">
 					<label for="filter">Filter: </label>
 					<select id="filter" name="filter">
