@@ -86,6 +86,7 @@ body {
 }
 
 .main {
+  padding-top: 200px;
   text-align: center;
   margin-left: 200px; /* Same width as the sidebar + left position in px */
   font-size: 30px; /* Increased text to enable scrolling */
@@ -153,7 +154,7 @@ body {
 .recipe_result_container{
   height:100px;
   width: 750px;
-  margin-top: 20px;
+  margin-top: 19px;
   margin-left: 250px;
   text-align: left;
   background-color: white;

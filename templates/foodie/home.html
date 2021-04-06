@@ -7,28 +7,11 @@
 
 {% block body_block %}
 
-	<div class = "titleBox">
-		<h2>Top Recipes</h2>
-	</div>
-
 	<div id = "homeText">
 		<p>
-			info about the recipes
+			Hello and welcome to Foodie,
+			a place to share all your favourite recipes!!
 		</p>
-	</div>
-
-	<div>
-		{% if recipes %}
-			<ul>
-			{% for recipe in recipes %}
-				<li><a href="{% url 'foodieapp:show_recipe' recipe.slug %}">{{ recipe.title }}</a></li>
-			{% endfor %}
-			</ul>
-		{% else %}
-			<div class="noRecipesMessage">
-				<strong>There are no top recipes present.</strong>
-			</div>
-		{% endif %}
 	</div>
 
 {% endblock %}

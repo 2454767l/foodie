@@ -35,9 +35,9 @@ def search(request):
     return render(request, 'foodie/search.html', context=context_dict)
 
 def recipes(request):
-    all_recipes = Recipe.objects
+    all_recipes = Recipe.objects.all
     context_dict= {}
-    context_dict['all'] = all_recipes
+    context_dict['recipes'] = all_recipes
 
     return render(request, 'foodie/allRecipes.html', context=context_dict)
 

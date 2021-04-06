@@ -1,5 +1,5 @@
 from django.contrib import admin
-from foodieapp.models import UserProfile, Recipe, Rating
+from foodieapp.models import UserProfile, Recipe
 # Register your models here.
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -7,4 +7,3 @@ class RecipeAdmin(admin.ModelAdmin):
 
 admin.site.register(UserProfile)
 admin.site.register(Recipe, RecipeAdmin)
-admin.site.register(Rating)

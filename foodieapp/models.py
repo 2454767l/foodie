@@ -12,16 +12,15 @@ class UserProfile(models.Model):
 
 
 class Recipe(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=40)
     date = models.DateField(default=datetime.now)
     photo = models.ImageField(upload_to='user_images', blank=True)
     description = models.CharField(max_length=1000)
     dietPref = models.CharField(max_length=100)
     upvotes = models.IntegerField
-    difficulty = models.IntegerField
     ingredients = models.CharField(max_length=1000)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField()
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -33,9 +32,4 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
-
-class Rating(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    date = models.DateField()
 

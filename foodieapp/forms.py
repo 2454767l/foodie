@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from foodieapp.models import UserProfile, Recipe, Rating
+from foodieapp.models import UserProfile, Recipe
 
 
 class UserForm(forms.ModelForm):
