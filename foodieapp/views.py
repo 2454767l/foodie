@@ -42,11 +42,11 @@ def recipes(request):
     return render(request, 'foodie/allRecipes.html', context=context_dict)
 
 
-def show_recipe(request, recipe_name_slug):
+def show_recipe(request, recipe_title_slug):
     context_dict = {}
 
     try:
-        recipe = Recipe.objects.get(slug=recipe_name_slug)
+        recipe = Recipe.objects.get(slug=recipe_title_slug)
         context_dict['recipe'] = recipe
     except Recipe.DoesNotExist:
         context_dict['recipe'] = None
