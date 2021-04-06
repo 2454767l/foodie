@@ -28,7 +28,7 @@ SECRET_KEY = 'k+2z@^iv1f0k4ud+205b@%^vcadgxal7bsvs4u$akw!-qo5*sa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['foodie.pythonanywhere.com']
+ALLOWED_HOSTS = ['foodie.pythonanywhere.com', 'https://www.pythonanywhere.com/user/foodie/']
 
 
 # Application definition
