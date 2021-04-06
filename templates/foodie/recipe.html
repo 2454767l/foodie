@@ -1,8 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'foodie/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    {{ recipe.title }}
+{% endblock %}
+
+{% block body_block %}
+
+	<div>
+        <h4 id="upvote_header">
+            {{ recipe.upvotes }} Upvotes
+        </h4>
+        <button id="upvote_button"
+            data-recipeid="{{ recipe.id }}"
+            type="button">
+            Upvote
+        </button>
+    </div>
+<script src="{% static "js/recipe-ajax.js" %}" crossorigin="anonymous"></script>
+{% endblock %}
+
+<!--
 <head>
     <meta charset="UTF-8">
-    <title>{{ recipe.title }}</title>
+    <title></title>
     <script src="{% static "js/recipe-ajax.js" %}" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -10,12 +31,11 @@
         <h4 id="upvote_header">
             {{ recipe.upvotes }} Upvotes
         </h4>
-        <button id="upvote_button" 
-            data-recipeid="{{ recipe.id }}" 
+        <button id="upvote_button"
+            data-recipeid="{{ recipe.id }}"
             type="button">
             Upvote
         </button>
     </div>
-    
 </body>
-</html>
+-->
