@@ -19,24 +19,22 @@ def home(request):
 
 
 def search(request):
-    query = request.GET.get('query')
-    query_filter = request.GET.get('filter')
-    
+    query = request.GET['query']
+    query_filter = request.GET['filter']
+
     if query_filter == "title":
-        results = Recipe.objects.filter(title=query)
-    elif query_filter == "user":    
-        current = UserProfile.objects.get(user=request.user)
-        results = Recipe.objects.filter(user=current)
+        results = Recipe.objects.filter(query in Recipe.title)
+    elif query_filter == "user":
+        results = Recipe.objects.filter(Recipe.user == query)
     elif query_filter == "ingredients":
-        results = Recipe.objects.filter(ingredients__contains=query)
-    
-    context_dict = {}
-    context_dict['recipes'] = results
-    return render(request, 'foodie/search.html', context=context_dict)
+        results = Recipe.objects.filter(query in Recipe.ingredients)
+
+    return render(request, 'search.html', results)
+
 
 def recipes(request):
     all_recipes = Recipe.objects
-    context_dict= {}
+    context_dict = {}
     context_dict['all'] = all_recipes
 
     return render(request, 'foodie/allRecipes.html', context=context_dict)
@@ -53,11 +51,12 @@ def show_recipe(request, recipe_name_slug):
 
     return render(request, 'foodie/recipe.html', context=context_dict)
 
+
 @login_required
 def new_recipe(request):
     form = RecipeForm()
 
-    if request.method=='POST':
+    if request.method == 'POST':
         form = RecipeForm(request.POST)
 
         if form.is_valid:
@@ -66,41 +65,37 @@ def new_recipe(request):
         else:
             print(form.errors)
 
-    return render(request, 'foodie/newrecipe.html', context={'form':form})
+    return render(request, 'foodie/newrecipe.html', {'form': form})
+
 
 @login_required
 def show_account(request):
-    current = UserProfile.objects.get(user=request.user)
+    current = UserProfile.objects.filter(user_id=request.user)
     user_recipes = Recipe.objects.filter(user=current)
     context_dict = {}
     context_dict['recipes'] = user_recipes
     return render(request, 'foodie/myAccount.html', context=context_dict)
 
-    
 
 def register(request):
     registered = False
-    
+
     if request.method == 'POST':
         user_form = UserForm(request.POST)
-        
+
         if user_form.is_valid():
-            user_profile = UserProfile()
             user = user_form.save()
             user.set_password(user.password)
-            user_profile.user = user
             user.save()
-            user_profile.user = user
-            user_profile.save()
             registered = True
         else:
             print(user_form.errors)
     else:
         user_form = UserForm()
 
-    
-    return render(request, 'foodie/register.html', context = {'user_form': user_form,
+    return render(request, 'foodie/register.html', context={'user_form': user_form,
                                                             'registered': registered})
+
 
 def user_login(request):
 
@@ -119,22 +114,22 @@ def user_login(request):
         else:
             print(f"Invalid login details: {username}, {password}")
             return HttpResponse("Invalid login details supplied.")
-            
+
     else:
         return render(request, 'foodie/login.html')
+
 
 @login_required
 def user_logout(request):
     logout(request)
     return redirect(reverse('foodie:home'))
 
+
 class LikeRecipe(View):
     def get(self, request):
         recipe_id = request.GET['recipe.id']
-        recipe = recipe.objects.get(id = int(recipe_id))
+        recipe = recipe.objects.get(id=int(recipe_id))
         recipe.upvotes += 1
         recipe.save()
 
         return HttpResponse(recipe.upvotes)
-
-

@@ -46,31 +46,24 @@
 			
 		</div>
 
-		<div id="mainSearchContainer">
+		<div class="search_container">
+			<form id="search_form" method="GET" action="{% url 'foodie:search' %}">
+				<input id="query" name="query" type="search" name="q" placeholder="Search...">
+				<label for="filter">Filter: </label>
+				<select id="filter" name="filter">
+					<option value="title" selected>Recipe Name</option>
+					<option value="user">User</option>
+					<option value="ingredients">Ingredients</option>
+				</select>
+				<button id="search_button">Search</button>
+			</form>
+		</div>
 
-			<div class="search_container">
-				<form id="search_form" method="GET" action="{% url 'foodie:search' %}">
-					<input id="query" name="query" type="search" name="q" placeholder="Search...">
-					<label for="filter">Filter: </label>
-					<select id="filter" name="filter">
-						<option value="title" selected>Recipe Name</option>
-						<option value="user">User</option>
-						<option value="ingredients">Ingredients</option>
-					</select>
-					<button id="search_button">Search</button>
-				</form>
-			</div>
-
-			<div class = "main">
-				{% block body_block %}
-				{% endblock %}
-			</div>
-
-
+		<div class = "main">
+			{% block body_block %}
+			{% endblock %}
 		</div>
 
 		<script src="{% static "js/jquery-3.3.1.min.js" %}" crossorigin="anonymous"></script>
-		<!--<script src="{% static "js/foodie-jquery.js" %}" crossorigin="anonymous"></script>-->
-
 	</body>
 </html>

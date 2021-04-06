@@ -3,14 +3,16 @@ body {
   background-color: #c0e1bd;
 }
 
-table {
-  margin: .3em;
-  width: 290px;
-}
+/* home.html */
 
-.logo{
-  width: 50px;
-  display: inline-flex;
+#homeText{
+  text-align: center;
+  background-color: white;
+  border: black;
+  width: 500px;
+  height: 100px;
+  margin-left: 350px;
+  margin-top: 75px;
 }
 
 .titleBox {
@@ -23,18 +25,7 @@ table {
   margin-top: 175px;
 }
 
-.textBox1{
-  text-align: center;
-  background-color: white;
-  border: black;
-  width: 500px;
-  height: 100px;
-  margin-left: 350px;
-  margin-top: 75px;
-
-}
-
-
+/* base.html */
 
 #logo {
   border-color: red;
@@ -43,11 +34,22 @@ table {
   float: left;  
 }
 
+
 #logo img{
   margin: auto 50px;
   float: left;
 }
 
+#heading {
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  margin-left: 30vw;
+  margin-bottom: 0vw;
+  font-size: 3em;
+  color: green;
+  float: left;
+}
 
 .sidenav {
   width: 200px;
@@ -73,6 +75,7 @@ table {
   color: #064579;
 }
 
+
 .search {
   position:relative;
   left:100%;
@@ -86,34 +89,22 @@ table {
   text-align: center;
   margin-left: 200px; /* Same width as the sidebar + left position in px */
   font-size: 30px; /* Increased text to enable scrolling */
-  /* padding: 0px 10px;*/
 }
 
-#heading {
-  width: 0vw;
-  height: 0vw;
-  text-align: center;
-  margin-left: 30vw;
-  margin-bottom: 30vw;
-  font-size: 3em;
-  color: green;
-  float: left;
-  /*margin-bottom: .3em;*/
-}
+/* allRecipes.html */
 
 .noRecipes{
-
   text-align: center;
   margin-top: 300px;
-  margin-right: 35vw;
+  margin-left: -150px;
 }
 
 .noRecipesMessage{
   text-align: center;
   margin-top: 100px;
-
-
 }
+
+/* register.html */
 
 .foodieSignupTitle{
   text-align: center;
@@ -128,24 +119,27 @@ table {
 
 }
 
+/* login.html */
+
 .loginForum{
   text-align: center;
   margin-top: 250px;
   margin-right: 25vw;
 }
 
-.centerCell {
-  text-align: center;
+/* newRecipe.html */
+
+#newRecipeHeader {
+  margin-top: 150px;
 }
 
-#trHeader {
-  text-decoration: underline;
-  color: #900;
+.submissioncontainer {
+  margin-top: 20px;
+  margin-left: 250px;
+  text-align: left;
 }
 
 .submissionfield {
-  width: 90px; 
-  height: 390px;
   border: 1px solid #999999;
   padding: 5px;
 }
