@@ -9,29 +9,28 @@ table {
 }
 
 .logo{
-    width: 50px;
-    display: inline-flex;
+  width: 50px;
+  display: inline-flex;
 }
 
 .titleBox {
-
-    text-align: center;
-    background-color: green;
-    border: green;
-    width: 300px;
-    height: 65px;
-    margin-left: 450px;
-    margin-top: 175px;
+  text-align: center;
+  background-color: green;
+  border: green;
+  width: 300px;
+  height: 65px;
+  margin-left: 450px;
+  margin-top: 175px;
 }
 
 .textBox1{
-    text-align: center;
-    background-color: white;
-    border: black;
-    width: 500px;
-    height: 100px;
-    margin-left: 350px;
-    margin-top: 75px;
+  text-align: center;
+  background-color: white;
+  border: black;
+  width: 500px;
+  height: 100px;
+  margin-left: 350px;
+  margin-top: 75px;
 
 }
 
@@ -45,8 +44,8 @@ table {
 }
 
 #logo img{
-    margin: auto 50px;
-    float: left;
+  margin: auto 50px;
+  float: left;
 }
 
 
@@ -75,12 +74,12 @@ table {
 }
 
 .search {
-    position:relative;
-    left:100%;
-    top:50%;
-    width:100%;
-    background-color:white;
-    color:grey;
+  position:relative;
+  left:100%;
+  top:50%;
+  width:100%;
+  background-color:white;
+  color:grey;
 }
 
 .main {
@@ -105,37 +104,34 @@ table {
 .noRecipes{
 
   text-align: center;
-    margin-top: 300px;
-    margin-right: 35vw;
+  margin-top: 300px;
+  margin-right: 35vw;
 }
 
 .noRecipesMessage{
   text-align: center;
-    margin-top: 100px;
+  margin-top: 100px;
 
 
 }
 
 .foodieSignupTitle{
-
   text-align: center;
-    margin-top: 200px;
-    margin-right: 35vw;
+  margin-top: 200px;
+  margin-right: 35vw;
 }
 
 .foodieSignupForum{
-
-    text-align: center;
-    margin-top: 25px;
-    margin-right: 35vw;
+  text-align: center;
+  margin-top: 25px;
+  margin-right: 35vw;
 
 }
 
 .loginForum{
-    text-align: center;
-    margin-top: 250px;
-    margin-right: 25vw;
-
+  text-align: center;
+  margin-top: 250px;
+  margin-right: 25vw;
 }
 
 .centerCell {
@@ -148,4 +144,8 @@ table {
 }
 
 .submissionfield {
-width: 90px; height: 390px; border: 1px solid #999999; padding: 5px; }
+  width: 90px; 
+  height: 390px;
+  border: 1px solid #999999;
+  padding: 5px;
+}
