@@ -16,7 +16,7 @@
         {% if recipes %}
             <ul>
                 {% for recipe in recipes %}
-                <li><a href="/foodie/recipe/{{ recipe.slug }}/">{{ recipe.title }}</a></li>
+                <li><a href="{% url 'foodieapp:show_recipe' recipe.slug %}">{{ recipe.title }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
