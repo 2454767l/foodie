@@ -143,3 +143,33 @@ body {
   border: 1px solid #999999;
   padding: 5px;
 }
+
+/* search.html */
+
+#spacer{
+  margin-top: 200px;
+}
+
+.recipe_result_container{
+  height:100px;
+  width: 750px;
+  margin-top: 20px;
+  margin-left: 250px;
+  text-align: left;
+  background-color: white;
+}
+
+.recipe_result_title{
+  height: 15px;
+  margin-left: 20px;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+
+.recipe_result_img{
+  width: 100px;
+  height: 100px;
+  float: right;
+  font-size: smaller;
+}

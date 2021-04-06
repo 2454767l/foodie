@@ -2,10 +2,9 @@ from foodieapp.models import Recipe, UserProfile, Rating
 import django
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'foodieapp.settings')
+                      'foodie.settings')
 
 django.setup()
-
 
 def populate():
     users = [{'username': 'ben', 'firstname': 'ben',

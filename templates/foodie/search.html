@@ -6,16 +6,18 @@
 {% endblock %}
 
 {% block body_block %}
-
-    {% if recipes %}
-        {% for recipe in recipes %}
-            <div class="recipe_result_container">
-                <h2 class="recipe_result_title">{{ recipe.title }}</h2>
-                <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.title }}" />
-            </div>
-        {% endfor %}
-    {% else %}
-        <h4 class="not_found">No recipes!</h4>
-    {% endif %}
-
+    <div id="spacer">
+        {% if recipes %}
+            {% for recipe in recipes %}
+                <a href="">
+                    <div class="recipe_result_container">
+                        <h4 class="recipe_result_title">{{ recipe.title }}</h4>
+                        <img class="recipe_result_img" src="{{ recipe.photo }}" alt="photo of {{ recipe.title }}" />
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <h4 class="not_found">No recipes!</h4>
+        {% endif %}
+    </div>
 {% endblock %}
