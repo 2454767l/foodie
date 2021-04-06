@@ -18,6 +18,7 @@ class RecipeForm(forms.ModelForm):
     upvotes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     difficulty = forms.IntegerField(max_value= 5, min_value=1, help_text="Enter difficulty rating(0-5):")
     ingredients = forms.CharField(max_length=1000, help_text="Enter ingredients list:")
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     class Meta:
         model = Recipe
